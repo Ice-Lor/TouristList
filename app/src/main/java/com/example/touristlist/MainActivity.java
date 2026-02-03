@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Khởi tạo dữ liệu mẫu
         spotList = new ArrayList<>();
-        spotList.add(new TouristSpot(1, "Vịnh Hạ Long", "Di sản thiên nhiên", R.drawable.ic_launcher_background));
+        spotList.add(new TouristSpot(1, "Vịnh Hạ Long (Mẫu)", "Mô tả mẫu", null));
 
         // Cấu hình RecyclerView
         adapter = new TouristAdapter(spotList, this, new TouristAdapter.OnItemClickListener() {

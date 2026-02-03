@@ -14,13 +14,12 @@
         android:textStyle="bold"
         android:textColor="#333333"
         android:gravity="center"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tên địa điểm:"
-        android:textSize="16sp"
         android:textStyle="bold"/>
 
     <EditText
@@ -28,15 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ví dụ: Vịnh Hạ Long"
-        android:padding="15dp"
+        android:padding="10dp"
         android:background="@android:drawable/edit_text"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mô tả chi tiết:"
-        android:textSize="16sp"
         android:textStyle="bold"/>
 
     <EditText
@@ -44,11 +42,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập thông tin giới thiệu..."
-        android:padding="15dp"
+        android:padding="10dp"
         android:background="@android:drawable/edit_text"
         android:gravity="top|start"
-        android:minLines="5"
-        android:layout_marginBottom="30dp"/>
+        android:minLines="3"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnPickImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="📷 Chọn ảnh từ Thư viện"
+        android:layout_gravity="center"
+        android:backgroundTint="#FF9800"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="5dp"/>
+
+    <ImageView
+        android:id="@+id/imgPreview"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/btnSave"

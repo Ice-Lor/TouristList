@@ -1,6 +1,7 @@
-package com.example.touristlist;
+package com.example.touristlist; // Đảm bảo đúng package
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ public class TouristAdapter extends RecyclerView.Adapter<TouristAdapter.ViewHold
     private Context context;
     private OnItemClickListener listener;
 
-    // Interface để giao tiếp với MainActivity
     public interface OnItemClickListener {
         void onEditClick(TouristSpot spot, int position);
         void onDeleteClick(int position);
@@ -40,12 +40,21 @@ public class TouristAdapter extends RecyclerView.Adapter<TouristAdapter.ViewHold
         TouristSpot spot = list.get(position);
         holder.tvName.setText(spot.getName());
         holder.tvDesc.setText(spot.getDescription());
-        holder.imgThumb.setImageResource(spot.getImageResId());
 
-        // Xử lý nút Sửa (Màu Vàng)
+        // --- PHẦN MỚI: HIỂN THỊ ẢNH TỪ URI ---
+        if (spot.getImageUri() != null && !spot.getImageUri().isEmpty()) {
+            try {
+                holder.imgThumb.setImageURI(Uri.parse(spot.getImageUri()));
+            } catch (Exception e) {
+                // Nếu lỗi thì hiện ảnh mặc định để không crash
+                holder.imgThumb.setImageResource(R.drawable.ic_launcher_background);
+            }
+        } else {
+            holder.imgThumb.setImageResource(R.drawable.ic_launcher_background);
+        }
+        // -------------------------------------
+
         holder.btnEdit.setOnClickListener(v -> listener.onEditClick(spot, position));
-
-        // Xử lý nút Xóa (Màu Đỏ)
         holder.btnDelete.setOnClickListener(v -> listener.onDeleteClick(position));
     }
 
